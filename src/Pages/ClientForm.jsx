@@ -51,7 +51,7 @@ const ClientForm = () => {
     if (formData.state) {
       fetchLGA(formData.state);
     } else {
-      setLga([]); 
+      setLga([]);
     }
   }, [formData.state]);
 
@@ -66,11 +66,20 @@ const ClientForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    console.log("Profile picture:", profilePicture);
-    const response = axios.post("http://localhost:3000/api/auth/register/client")
+    try {
+      console.log("Form submitted:", formData);
+      console.log("Profile picture:", profilePicture);
+      const response = axios.post(
+        "http://localhost:3000/api/auth/register/client"
+      );
+      const data = await response.json();
+
+      console.log
+    } catch (err) {
+      console.error("Error submitting form:", err);
+    }
   };
 
   const inputStyle =
