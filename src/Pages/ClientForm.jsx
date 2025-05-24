@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArtisanBg from "../assets/ArtisanBg.png";
+import axios from "axios";
 
 const ClientForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ClientForm = () => {
   });
   const [profilePicture, setProfilePicture] = useState(null);
   const [states, setStates] = useState([]);
+  const [lga, setLga] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,8 +34,20 @@ const ClientForm = () => {
     }
   };
 
+  const fetchLGA = async(state) => {
+    try {
+      const response = await axios.get(`https://nga-states-lga.onrender.com/?state=${state}`)
+    setLga(response.data)
+    } catch (error) {
+      console.error("Error fetching LGA:", error);
+    }
+  }
+
   useEffect(() => {
     fetchStates();
+    if (formData.state) {
+      fetchLGA(formData.state);
+    }
   }, []);
 
   const handleFileChange = (e) => {
@@ -214,17 +228,23 @@ const ClientForm = () => {
                   htmlFor="city"
                   className="block text-sm font-bold text-gray-700"
                 >
-                  City
+                  LGA
                 </label>
-                <input
-                  id="city"
-                  name="city"
-                  type="text"
-                  required
-                  className={inputStyle}
-                  value={formData.city}
+                <select
                   onChange={handleChange}
-                />
+                  className={inputStyle}
+                  value={formData.lga}
+                  name=""
+                  id=""
+                >
+                  {lga.map((item, idx) => {
+                    return (
+                      <option className="w-full" key={idx} value={item.state}>
+                        {item}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
           </div>
