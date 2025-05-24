@@ -8,6 +8,7 @@ const ClientForm = () => {
     email: "",
     phone: "",
     address: "",
+    password: "",
     state: "",
     lga: "",
   });
@@ -259,6 +260,24 @@ const ClientForm = () => {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              <div className="sm:col-span-2 sm:w-[70%]">
+                <label
+                  htmlFor="fullName"
+                  className="block text-sm font-bold text-gray-700"
+                >
+                 Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  className={inputStyle}
+                  value={formData.password}
+                  onChange={handleChange}
+                />
               </div>
             </div>
           </div>
