@@ -6,9 +6,7 @@ const ClientForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    phoneNumber: "",
-    sex: "",
-    maritalStatus: "",
+    phone: "",
     address: "",
     state: "",
     lga: "",
@@ -80,7 +78,7 @@ const ClientForm = () => {
           ...formData,
         }
       );
-      const data = await response.json();
+      const data = await response;
 
       console.log(data);
     } catch (err) {
@@ -192,12 +190,12 @@ const ClientForm = () => {
                   Phone number
                 </label>
                 <input
-                  id="phoneNumber"
-                  name="phoneNumber"
+                  id="phone"
+                  name="phone"
                   type="tel"
                   required
                   className={inputStyle}
-                  value={formData.phoneNumber}
+                  value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
