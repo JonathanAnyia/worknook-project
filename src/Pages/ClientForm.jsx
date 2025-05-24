@@ -51,7 +51,7 @@ const ClientForm = () => {
     if (formData.state) {
       fetchLGA(formData.state);
     } else {
-      setLga([]); // Clear LGA when no state is selected
+      setLga([]); 
     }
   }, [formData.state]);
 
@@ -70,7 +70,7 @@ const ClientForm = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     console.log("Profile picture:", profilePicture);
-    // Handle form submission logic here
+    const response = axios.post()
   };
 
   const inputStyle =
