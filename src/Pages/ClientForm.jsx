@@ -267,7 +267,7 @@ const ClientForm = () => {
                   htmlFor="fullName"
                   className="block text-sm font-bold text-gray-700"
                 >
-                 Password
+                  Password
                 </label>
                 <input
                   id="password"
