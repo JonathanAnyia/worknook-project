@@ -226,7 +226,7 @@ const ClientForm = () => {
               <div>
                 <label
                   htmlFor="city"
-                  className="block text-sm font-bold text-gray-700"
+                  className="block text-sm font-bold text-gray-700 "
                 >
                   LGA
                 </label>
