@@ -25,7 +25,7 @@ const ClientForm = () => {
       const response = await fetch("https://nga-states-lga.onrender.com/fetch");
       const data = await response.json();
       setStates(data);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error("Error fetching states:", error);
     }
