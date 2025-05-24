@@ -70,7 +70,7 @@ const ClientForm = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     console.log("Profile picture:", profilePicture);
-    const response = axios.post()
+    const response = axios.post("")
   };
 
   const inputStyle =
