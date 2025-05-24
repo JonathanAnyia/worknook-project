@@ -34,14 +34,16 @@ const ClientForm = () => {
     }
   };
 
-  const fetchLGA = async(state) => {
+  const fetchLGA = async (state) => {
     try {
-      const response = await axios.get(`https://nga-states-lga.onrender.com/?state=${state}`)
-    setLga(response.data)
+      const response = await axios.get(
+        `https://nga-states-lga.onrender.com/?state=${state}`
+      );
+      setLga(response.data);
     } catch (error) {
       console.error("Error fetching LGA:", error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchStates();
@@ -210,12 +212,14 @@ const ClientForm = () => {
                   onChange={handleChange}
                   className={inputStyle}
                   value={formData.state}
-                  name=""
-                  id=""
                 >
                   {states.map((item, idx) => {
                     return (
-                      <option className="w-full" key={idx} value={item.state}>
+                      <option
+                        className="w-full"
+                        key={idx}
+                        value={formData.state}
+                      >
                         {item}
                       </option>
                     );
