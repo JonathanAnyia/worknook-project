@@ -24,8 +24,6 @@ const ClientForm = () => {
   const fetchStates = async () => {
     try {
       const response = await fetch("https://nga-states-lga.onrender.com/fetch");
-      // console.log(response);
-
       const data = await response.json();
       setStates(data);
       console.log(data);
@@ -47,10 +45,15 @@ const ClientForm = () => {
 
   useEffect(() => {
     fetchStates();
+  }, []);
+
+  useEffect(() => {
     if (formData.state) {
       fetchLGA(formData.state);
+    } else {
+      setLga([]); // Clear LGA when no state is selected
     }
-  }, []);
+  }, [formData.state]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -183,7 +186,6 @@ const ClientForm = () => {
                   onChange={handleChange}
                 />
               </div>
-
               <div className="sm:col-span-2 sm:w-[70%]">
                 <label
                   htmlFor="address"
@@ -209,50 +211,44 @@ const ClientForm = () => {
                   State
                 </label>
                 <select
+                  id="state"
+                  name="state"
                   onChange={handleChange}
                   className={inputStyle}
                   value={formData.state}
                 >
-                  {states.map((item, idx) => {
-                    return (
-                      <option
-                        className="w-full"
-                        key={idx}
-                        value={formData.state}
-                      >
-                        {item}
-                      </option>
-                    );
-                  })}
-                  <option value=""></option>
+                  <option value="">Select a state</option>
+                  {states.map((item, idx) => (
+                    <option className="w-full" key={idx} value={item}>
+                      {item}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div>
                 <label
-                  htmlFor="city"
-                  className="block text-sm font-bold text-gray-700 "
+                  htmlFor="lga"
+                  className="block text-sm font-bold text-gray-700"
                 >
                   LGA
                 </label>
                 <select
+                  id="lga"
+                  name="lga"
                   onChange={handleChange}
                   className={inputStyle}
                   value={formData.lga}
-                  name=""
-                  id=""
                 >
-                  {lga.map((item, idx) => {
-                    return (
-                      <option className="w-full" key={idx} value={item.state}>
-                        {item}
-                      </option>
-                    );
-                  })}
+                  {/* <option value="">Select an LGA</option> */}
+                  {lga.map((item, idx) => (
+                    <option className="w-full" key={idx} value={item}>
+                      {item}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
           </div>
-
           <div className="flex justify-end">
             <button
               type="submit"
