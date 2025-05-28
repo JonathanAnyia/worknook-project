@@ -1,16 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import ArtisanBg from "../assets/ArtisanBg.png";
 import axios from "axios";
+import { AuthContext, AuthProvider } from "../Context/AuthProvider";
 
 const ClientForm = () => {
+  const { handleChange, handleSubmit, formData } = useContext(AuthProvider);
 
-  const { } = useContext(Auth)
- 
   const [profilePicture, setProfilePicture] = useState(null);
   const [states, setStates] = useState([]);
   const [lga, setLga] = useState([]);
-
-
 
   const fetchStates = async () => {
     try {
@@ -56,8 +54,6 @@ const ClientForm = () => {
       reader.readAsDataURL(file);
     }
   };
-
-
 
   const inputStyle =
     "mt-1 block w-full px-0.5 border-0 border-b-2 border-gray-300 bg-transparent focus:outline-none";

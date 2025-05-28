@@ -2,7 +2,7 @@ import { Children, createContext, useState } from "react";
 import axios from "axios";
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ Children }) => {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -41,7 +41,7 @@ export const AuthProvider = ({ Children }) => {
   };
   return (
     <AuthContext.Provider value={{ handleChange, handleSubmit, formData }}>
-      {Children}
+      {children}
     </AuthContext.Provider>
   );
 };

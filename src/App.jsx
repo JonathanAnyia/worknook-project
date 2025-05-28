@@ -13,12 +13,14 @@ import CleanerForm from "./Pages/CleanerForm";
 import ClientForm from "./Pages/ClientForm";
 import WorkerDetails from "./Pages/WorkerDetails";
 import WorkerList from "./Components/WorkerList";
-import { AuthProvider } from "./Context/AuthProvider";
+import { AuthProvider } from "./Context/AuthProvider"; // Import AuthProvider
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
+    <AuthProvider>
+      {" "}
+      {/* Use AuthProvider instead of AuthContext.Provider */}
+      <BrowserRouter>
         <AnimatePresence>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -36,8 +38,8 @@ function App() {
             <Route path="/workers" element={<WorkerList />} />
           </Routes>
         </AnimatePresence>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
