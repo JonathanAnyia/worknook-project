@@ -3,22 +3,12 @@ import ArtisanBg from "../assets/ArtisanBg.png";
 import axios from "axios";
 
 const ClientForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    address: "",
-    password: "",
-    state: "",
-    lga: "",
-  });
+ 
   const [profilePicture, setProfilePicture] = useState(null);
   const [states, setStates] = useState([]);
   const [lga, setLga] = useState([]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+
 
   const fetchStates = async () => {
     try {
@@ -65,27 +55,7 @@ const ClientForm = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      console.log("Form submitted:", formData);
-      console.log("Profile picture:", profilePicture);
-      const response = axios.post(
-        "http://localhost:3000/api/auth/register/client",
-        {
-          Headers: {
-            "Content-Type": "application/json",
-          },
-          ...formData,
-        }
-      );
-      const data = await response;
 
-      console.log(data);
-    } catch (err) {
-      console.error("Error submitting form:", err);
-    }
-  };
 
   const inputStyle =
     "mt-1 block w-full px-0.5 border-0 border-b-2 border-gray-300 bg-transparent focus:outline-none";
