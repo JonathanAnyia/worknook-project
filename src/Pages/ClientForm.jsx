@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ArtisanBg from "../assets/ArtisanBg.png";
 import axios from "axios";
 
 const ClientForm = () => {
+
+  const { } = useContext(Auth)
  
   const [profilePicture, setProfilePicture] = useState(null);
   const [states, setStates] = useState([]);
