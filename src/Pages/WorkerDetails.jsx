@@ -8,6 +8,7 @@ const WorkerDetails = () => {
   const { id } = useParams();
   const [worker, setWorker] = useState(null);
 
+
   useEffect(() => {
     const fetchWorker = async () => {
       try {

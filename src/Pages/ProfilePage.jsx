@@ -31,6 +31,9 @@ function ProfilePage() {
           return <DashboardContent />;
       }
     };
+
+    const user = JSON.parse(localStorage.getItem('user')) || {};
+    console.log(user)
   
     return (
         <div className="flex h-screen relative" style={{ backgroundImage: `url("${ArtisanBg}")` }}>

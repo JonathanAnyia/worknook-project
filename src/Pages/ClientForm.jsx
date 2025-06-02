@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import ArtisanBg from "../assets/ArtisanBg.png";
 import axios from "axios";
 import { AuthContext, AuthProvider } from "../Context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const ClientForm = () => {
-  const { handleChange, handleSubmit, formData } = useContext(AuthProvider);
+  const { handleChange, handleSubmit, formData, isSuccess } =
+    useContext(AuthContext);
 
+  const navigate = useNavigate();
   const [profilePicture, setProfilePicture] = useState(null);
   const [states, setStates] = useState([]);
   const [lga, setLga] = useState([]);
@@ -54,6 +57,12 @@ const ClientForm = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/ProfilePage");
+    }
+  }, [isSuccess, navigate]);
 
   const inputStyle =
     "mt-1 block w-full px-0.5 border-0 border-b-2 border-gray-300 bg-transparent focus:outline-none";
