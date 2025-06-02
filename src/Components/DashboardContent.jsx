@@ -12,6 +12,8 @@ const DashboardContent = () => {
     { date: '7 July 2024', hours: '2hrs', type: 'Standard', status: 'Completed' },
   ];
 
+
+  const user = JSON.parse(localStorage.getItem('user')) || {};
   return (
     <div className="h-full min-h-screen relative overflow-hidden" style={{ backgroundImage: `url("${ArtisanBg}")` }}>
       <div className="absolute inset-0 bg-blue-100 bg-opacity-10 -z-10"></div>
@@ -42,15 +44,15 @@ const DashboardContent = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             <div>
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name</label>
-              <input type="text" id="fullName" name="fullName" value="Abe John" readOnly
+              <input type="text" id="fullName" name="fullName" value={user?.name} readOnly
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-              <input type="email" id="email" name="email" value="Abejohn@gmail.com" readOnly
+              <input type="email" id="email" name="email" value={user?.email} readOnly
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="userName" className="block text-sm font-medium text-gray-700">User Name</label>
               <input type="text" id="userName" name="userName" placeholder="Username" 
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
@@ -59,7 +61,7 @@ const DashboardContent = () => {
               <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">Phone number</label>
               <input type="tel" id="phoneNumber" name="phoneNumber" value="081111111111" readOnly
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" />
-            </div>
+            </div> */}
           </div>
         </div>
     </div>
