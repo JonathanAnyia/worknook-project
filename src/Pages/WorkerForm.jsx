@@ -5,7 +5,7 @@ import { AuthContext, AuthProvider } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const ClientForm = () => {
-  const { handleChange, handleWorkerSignup, formData, isSuccess } =
+  const { handleChange, handleSubmit, formData, isSuccess } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const ClientForm = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate("/ProfilePag");
+      navigate("/ProfilePage");
     }
   }, [isSuccess, navigate]);
 
@@ -81,7 +81,7 @@ const ClientForm = () => {
         </div>
         <form
           className="mt-8 space-y-6 shadow-md rounded px-8 pt-6 pb-8 mb-4 rounded-br-[2.5rem]"
-          onSubmit={handleWorkerSignup}
+          onSubmit={handleSubmit}
         >
           <div className="flex justify-end mb-4">
             <div className="relative w-32 h-32">
