@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../Components/Header";
 import Hero from "../Components/Hero";
 import ServiceCard from "../Components/ServiceCard";
@@ -18,12 +18,14 @@ import ArtisanBg from "../assets/ArtisanBg.png"
 
 
 export default function HomePage() {
-
+ 
   return (
     <div className="relative" style={{ backgroundImage: `url("${ArtisanBg}")` }}>
       <div className="absolute inset-0 bg-blue-100 bg-opacity-20"></div>
+      
       <Header />
         <Hero />
+        
         <section className="py-16 px-4  text-center flex flex-col justify-center items-center"> 
           <div>
           <span className="bg-sky-600 text-white px-3 py-1 rounded-full  text-sm font-semibold tracking-wide ">

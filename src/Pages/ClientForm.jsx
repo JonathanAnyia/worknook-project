@@ -4,7 +4,7 @@ import axios from "axios";
 import { AuthContext, AuthProvider } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-const WorkerForm = () => {
+const ClientForm = () => {
   const { handleChange, handleSubmit, formData, isSuccess } =
     useContext(AuthContext);
 
@@ -60,7 +60,7 @@ const WorkerForm = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate("/ProfilePage");
+      navigate("/");
     }
   }, [isSuccess, navigate]);
 
@@ -272,4 +272,4 @@ const WorkerForm = () => {
   );
 };
 
-export default WorkerForm;
+export default ClientForm;

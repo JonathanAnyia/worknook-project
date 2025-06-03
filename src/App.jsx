@@ -32,8 +32,8 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/SignUpRole" element={<SignUpRole />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/worker" element={<ClientForm />} />
-            <Route path="/client" element={<WorkerForm />} />
+            <Route path="/client" element={<ClientForm />} />
+            <Route path="/worker" element={<WorkerForm />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/workers/:id" element={<WorkerDetails />} />
             <Route path="/workers" element={<WorkerList />} />

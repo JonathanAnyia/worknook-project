@@ -32,7 +32,7 @@ function ProfilePage() {
       }
     };
 
-    const user = JSON.parse(localStorage.getItem('user')) || {};
+    const user = JSON.parse(localStorage.getItem('worker')) || {};
     console.log(user)
   
     return (

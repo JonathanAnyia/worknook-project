@@ -13,7 +13,7 @@ const DashboardContent = () => {
   ];
 
 
-  const user = JSON.parse(localStorage.getItem('user')) || {};
+  const user = JSON.parse(localStorage.getItem('worker')) || {};
   return (
     <div className="h-full min-h-screen relative overflow-hidden" style={{ backgroundImage: `url("${ArtisanBg}")` }}>
       <div className="absolute inset-0 bg-blue-100 bg-opacity-10 -z-10"></div>
