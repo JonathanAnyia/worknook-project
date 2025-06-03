@@ -4,7 +4,7 @@ import axios from "axios";
 import { AuthContext, AuthProvider } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-const WorkerForm = () => {
+const ClientForm = () => {
   const { handleChange, handleSubmit, formData, isSuccess } =
     useContext(AuthContext);
 
@@ -76,7 +76,7 @@ const WorkerForm = () => {
       <div className="max-w-2xl w-full space-y-8 z-10">
         <div>
           <h2 className="mt-6 text-center text-xl md:text-2xl font-bold">
-            Clients Profile
+            Applicants Profile
           </h2>
         </div>
         <form
@@ -272,4 +272,4 @@ const WorkerForm = () => {
   );
 };
 
-export default WorkerForm;
+export default ClientForm;

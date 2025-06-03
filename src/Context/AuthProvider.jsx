@@ -48,8 +48,37 @@ export const AuthProvider = ({ children }) => {
       console.error("Error submitting form:", err);
     }
   };
+
+  const handleWorkerSignup = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("Form submitted:", formData);
+
+      const response = axios.post(
+        "http://localhost:3000/api/auth/register/worker",
+        {
+          Headers: {
+            "Content-Type": "application/json",
+          },
+          ...formData,
+        }
+      );
+      const data = await response;
+
+      if (data.status === 201) {
+        setIsSuccess(true);
+        console.log("Registration successful:", data.data);
+      }
+
+      console.log(data);
+      localStorage.setItem("worker", JSON.stringify(data?.data.user || {}));
+    } catch (err) {
+      console.error("Error submitting form:", err);
+    }
+  };
+  
   return (
-    <AuthContext.Provider value={{ handleChange, handleSubmit, isSuccess, formData }}>
+    <AuthContext.Provider value={{ handleChange, handleWorkerSignup, handleSubmit, isSuccess, formData }}>
       {children}
     </AuthContext.Provider>
   );

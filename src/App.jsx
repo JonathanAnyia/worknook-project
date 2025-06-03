@@ -9,11 +9,12 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/SignUp";
 import ForgotPassword from "./Pages/ForgotPassword";
 import SignUpRole from "./Pages/SignUpRole";
-import CleanerForm from "./Pages/CleanerForm";
-import ClientForm from "./Pages/ClientForm";
+import CleanerForm from "./Pages/ClientForm";
+import ClientForm from "./Pages/WorkerForm";
 import WorkerDetails from "./Pages/WorkerDetails";
 import WorkerList from "./Components/WorkerList";
 import { AuthProvider } from "./Context/AuthProvider"; // Import AuthProvider
+import WorkerForm from "./Pages/ClientForm";
 
 function App() {
   return (
@@ -31,8 +32,8 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/SignUpRole" element={<SignUpRole />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/client" element={<ClientForm />} />
-            <Route path="/cleaner" element={<CleanerForm />} />
+            <Route path="/worker" element={<ClientForm />} />
+            <Route path="/client" element={<WorkerForm />} />
             <Route path="/ProfilePage" element={<ProfilePage />} />
             <Route path="/workers/:id" element={<WorkerDetails />} />
             <Route path="/workers" element={<WorkerList />} />

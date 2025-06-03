@@ -17,13 +17,13 @@ export default function SignUpRole() {
           onClick={() => navigate("/client")}
           className="w-full px-6 py-3 bg-sky-600 text-white rounded-lg text-lg font-semibold transition-colors"
         >
-          Worker
+          Client
         </button>
         <button
-          onClick={() => navigate("/cleaner")}
+          onClick={() => navigate("/worker")}
           className="w-full px-6 py-3 bg-white text-sky-600 border-2 border-sky-600 rounded-lg text-lg font-semibold hover:bg-sky-50 transition-colors"
         >
-          Client
+          Worker
         </button>
       </div>
     </div>
