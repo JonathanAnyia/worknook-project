@@ -18,7 +18,7 @@ import ArtisanBg from "../assets/ArtisanBg.png"
 
 
 export default function HomePage() {
- 
+
   return (
     <div className="relative" style={{ backgroundImage: `url("${ArtisanBg}")` }}>
       <div className="absolute inset-0 bg-blue-100 bg-opacity-20"></div>

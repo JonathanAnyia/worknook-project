@@ -27,8 +27,10 @@ const Header = () => {
     };
   }, []);
 
+  const user = JSON.parse(localStorage.getItem('user')) || {};
   // Sidebar component
   const Sidebar = ({ isOpen, toggleSidebar }) => {
+ console.log(user)
     return (
       <div
         className={`fixed inset-y-0 left-0 transform ${ isOpen ? "translate-x-0" : "-translate-x-full"} 
@@ -99,14 +101,14 @@ const Header = () => {
           <div className="flex flex-col ">
             <Link
               to="/Login"
-              className={`hover:text-blue-600 font-bold transition-colors duration-300 block text-lg active:bg-sky-600 p-3 rounded-md text-gray-300
+              className={`hover:text-blue-600 font-bold transition-colors duration-300 block text-lg active:bg-sky-600 p-3 rounded-md ${user ? 'hidden' : 'hidden'} text-gray-300
                 }`}
             >
               Sign In
             </Link>
             <Link
               to="/SignUp"
-              className="bg-sky-600 text-white ml-2 px-4 py-2 rounded hover:bg-blue-700 w-fit text-lg font-semibold "
+              className={`bg-sky-600 ${user ? 'hidden' : 'block'} text-white ml-2 px-4 py-2 rounded hover:bg-blue-700 w-fit text-lg font-semibold `}
             >
               Sign Up
             </Link>
@@ -173,7 +175,7 @@ const Header = () => {
         <li className="cursor-pointer">
           <Link
             to="/ProfilePage"
-            className={`hover:text-blue-600 font-semibold transition-colors duration-300 ${
+            className={`hover:text-blue-600 ${user ? 'hidden' : 'block'}   font-semibold transition-colors duration-300 ${
               scrolled ? "text-blue-500" : "text-gray-300"
             }`}
           >
@@ -183,7 +185,7 @@ const Header = () => {
         <li className="cursor-pointer">
           <Link
             to="/SignUpRole"
-            className={`hover:text-blue-600 font-semibold transition-colors duration-300 ${
+            className={`hover:text-blue-600  ${user ? 'hidden' : 'block'} font-semibold transition-colors duration-300 ${
               scrolled ? "text-blue-500" : "text-gray-300"
             }`}
           >
@@ -194,7 +196,7 @@ const Header = () => {
       <div className="space-x-4 hidden md:flex">
         <Link
           to="/Login"
-          className={`hover:text-blue-600 py-2 px-4 rounded font-semibold transition-colors duration-300 ${
+          className={`hover:text-blue-600 ${user ? 'hidden' : 'block'} py-2 px-4 rounded font-semibold transition-colors duration-300 ${
             scrolled ? "text-blue-500" : "text-gray-300"
           }`}
         >
@@ -202,7 +204,7 @@ const Header = () => {
         </Link>
         <Link
           to="/SignUp"
-          className="bg-sky-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className={`bg-sky-600 text-white px-4 py-2 ${user ? 'hidden' : 'block'} rounded hover:bg-blue-700`}
         >
           Sign Up
         </Link>

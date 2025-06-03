@@ -9,12 +9,13 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/SignUp";
 import ForgotPassword from "./Pages/ForgotPassword";
 import SignUpRole from "./Pages/SignUpRole";
-import CleanerForm from "./Pages/ClientForm";
-import ClientForm from "./Pages/WorkerForm";
+  
+import WorkerForm from "./Pages/WorkerForm";
 import WorkerDetails from "./Pages/WorkerDetails";
 import WorkerList from "./Components/WorkerList";
 import { AuthProvider } from "./Context/AuthProvider"; // Import AuthProvider
-import WorkerForm from "./Pages/ClientForm";
+
+import ClientForm from "./Pages/ClientForm";
 
 function App() {
   return (
