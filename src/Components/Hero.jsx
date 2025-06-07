@@ -37,7 +37,7 @@ const Hero = () => {
         <div>
           <input
             onChange={handleSearch}
-            className="focus:outline-0 bg-white/80 border-gray-300 w-1/3 my-3 rounded-full py-4s px-8  outline-0"
+            className="focus:outline-0 bg-white/80 border-gray-300 w-1/3 my-3 rounded-full py-4 px-8  outline-0"
             placeholder="Search"
             type="text"
           />
